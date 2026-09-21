@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hango | Engineering Digital Growth</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#FF2020',
+              redHover: '#E01B1B',
+              darkBg: '#0A0B0E',
+              cardBg: '#12141A',
+              border: '#232733'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="overflow-x-hidden bg-[#0A0B0E] text-gray-100">
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-card bg-opacity-80 border-b border-brand-border/50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 bg-brand-red rounded-lg flex items-center justify-center font-extrabold text-white text-xl tracking-tighter shadow-lg shadow-brand-red/30 group-hover:scale-105 transition-transform">
+          H
+        </div>
+        <span class="text-2xl font-bold font-heading tracking-wide text-white">Hango<span class="text-brand-red">.</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+        <a href="#work" class="hover:text-brand-red transition-colors">Featured Work</a>
+        <a href="#skills" class="hover:text-brand-red transition-colors">Tech Stack</a>
+        <a href="#about" class="hover:text-brand-red transition-colors">About</a>
+        <a href="#contact" class="hover:text-brand-red transition-colors">Get Quote</a>
+      </div>
+
+      <!-- Primary CTA Button -->
+      <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-brand-red hover:bg-brand-redHover text-white font-medium text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-red/25">
+        <span>Build Your Website</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="home" class="relative pt-36 pb-24 md:pt-48 md:pb-32 overflow-hidden flex items-center min-h-screen">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-red/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-brand-red/30 bg-brand-red/10 text-brand-red text-xs font-semibold tracking-wide uppercase mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse mr-2"></span>
+        Digital Agency & Web Development
+      </div>
+
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
+        Engineering Digital Growth Through <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-orange-500 glow-text">High-Impact Websites</span>
+      </h1>
+
+      <p class="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-normal leading-relaxed">
+        We build bespoke web platforms, custom e-commerce stores, and animated digital systems engineered for conversions and business growth.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-red hover:bg-brand-redHover text-white font-semibold text-base transition-all transform hover:-translate-y-1 shadow-xl shadow-brand-red/30 flex items-center justify-center">
+          <span>Build Your Website</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+        </a>
+        <a href="#work" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-gray-300 hover:text-white font-semibold text-base transition-all flex items-center justify-center border border-brand-border hover:border-gray-600">
+          Explore Showcase
+        </a>
+      </div>
+
+      <!-- Key Highlights -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto pt-10 border-t border-brand-border/60">
+        <div>
+          <div class="text-3xl md:text-4xl font-extrabold text-white font-heading">100%</div>
+          <p class="text-xs md:text-sm text-gray-400 mt-1">Bespoke Development</p>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-extrabold text-white font-heading">Sub-Second</div>
+          <p class="text-xs md:text-sm text-gray-400 mt-1">Optimized Loading Speed</p>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-extrabold text-white font-heading">4+</div>
+          <p class="text-xs md:text-sm text-gray-400 mt-1">Featured Platforms</p>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-extrabold text-white font-heading">24/7</div>
+          <p class="text-xs md:text-sm text-gray-400 mt-1">Technical Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED WORKS (HOMEPAGE PREVIEWS & VIDEO) ==================== -->
+  <section id="work" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">
+            Featured <span class="text-brand-red">Websites</span>
+          </h2>
+          <p class="text-gray-400 mt-3 text-base md:text-lg max-w-xl">
+            A showcase of live homepage designs, interactive layouts, and video walkthroughs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Project 1: Elkasi Beauty -->
+        <div class="glass-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between border border-brand-border">
+          <div class="p-6">
+            <div class="relative overflow-hidden rounded-xl bg-black/50 border border-brand-border h-72 mb-6">
+              <img src="assets/images/elkasi-home.jpg" alt="Elkasi Skincare Homepage" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop&q=80'">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-xs font-semibold px-3 py-1 rounded-full text-brand-red border border-brand-red/30">
+                E-Commerce Homepage
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Elkasi Beauty</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Luxury skincare homepage featuring active formula breakdowns, ingredient highlights, and interactive product sections.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">HTML5 / CSS3</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">JavaScript</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">Custom E-Com</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-brand-border/40 flex justify-between items-center gap-2">
+            <button onclick="openVideoModal('assets/images/demo-video.mp4')" class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red hover:bg-brand-red hover:text-white transition-all">
+              <i data-lucide="play-circle" class="w-4 h-4 mr-1"></i> Watch Video
+            </button>
+            <a href="https://elkasi.com/about" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-red hover:underline">
+              <span>View Website</span>
+              <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: MS Builders Design -->
+        <div class="glass-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between border border-brand-border">
+          <div class="p-6">
+            <div class="relative overflow-hidden rounded-xl bg-black/50 border border-brand-border h-72 mb-6">
+              <img src="assets/images/msbuilders-home.jpg" alt="MS Builders Design Homepage" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?w=800&auto=format&fit=crop&q=80'">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-xs font-semibold px-3 py-1 rounded-full text-blue-400 border border-blue-400/30">
+                Corporate Construction
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-brand-red transition-colors">MS Builders Design</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Construction firm corporate website displaying 3D elevation designs, structural planning, and client project inquiries.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">HTML5 / Bootstrap</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">JavaScript</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">Maps API</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-brand-border/40 flex justify-between items-center gap-2">
+            <button onclick="openVideoModal('assets/images/demo-video.mp4')" class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red hover:bg-brand-red hover:text-white transition-all">
+              <i data-lucide="play-circle" class="w-4 h-4 mr-1"></i> Watch Video
+            </button>
+            <a href="https://www.msbuildersdesign.co.in/#home" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-red hover:underline">
+              <span>View Website</span>
+              <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Hango Digital Agency -->
+        <div class="glass-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between border border-brand-border">
+          <div class="p-6">
+            <div class="relative overflow-hidden rounded-xl bg-black/50 border border-brand-border h-72 mb-6">
+              <img src="assets/images/hango-home.jpg" alt="Hango AI Digital Agency Homepage" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80'">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-xs font-semibold px-3 py-1 rounded-full text-brand-red border border-brand-red/30">
+                Agency Landing Page
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Hango Agency</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Futuristic dark-mode agency application featuring glowing neon aesthetics, grid service breakdowns, and animations.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">Glassmorphism UI</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">JavaScript</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">Netlify Deployment</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-brand-border/40 flex justify-between items-center gap-2">
+            <button onclick="openVideoModal('assets/images/demo-video.mp4')" class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red hover:bg-brand-red hover:text-white transition-all">
+              <i data-lucide="play-circle" class="w-4 h-4 mr-1"></i> Watch Video
+            </button>
+            <a href="https://neon-cascaron-c10015.netlify.app/" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-red hover:underline">
+              <span>View Website</span>
+              <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: Akarshana Gold -->
+        <div class="glass-card rounded-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between border border-brand-border">
+          <div class="p-6">
+            <div class="relative overflow-hidden rounded-xl bg-black/50 border border-brand-border h-72 mb-6">
+              <img src="assets/images/akarshana-home.jpg" alt="Akarshana Gold Homepage" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1610375461246-83df859d849d?w=800&auto=format&fit=crop&q=80'">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-xs font-semibold px-3 py-1 rounded-full text-amber-400 border border-amber-400/30">
+                FinTech Platform
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Akarshana Gold Company</h3>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Premium financial valuation platform featuring live rate charts, gold purity calculators, and instant inquiry booking.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">HTML5 / CSS3</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">Math Engine</span>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300">Financial API</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-brand-border/40 flex justify-between items-center gap-2">
+            <button onclick="openVideoModal('assets/images/demo-video.mp4')" class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red hover:bg-brand-red hover:text-white transition-all">
+              <i data-lucide="play-circle" class="w-4 h-4 mr-1"></i> Watch Video
+            </button>
+            <a href="https://www.akarshanagoldcompany.com/" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-red hover:underline">
+              <span>View Website</span>
+              <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TECH STACK SECTION ==================== -->
+  <section id="skills" class="py-24 relative border-t border-brand-border/50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold text-white">Technology <span class="text-brand-red">Stack</span></h2>
+        <p class="text-gray-400 mt-3 max-w-xl mx-auto">Technologies and tools integrated into our project builds.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        <div class="glass-card p-5 rounded-xl text-center flex flex-col items-center justify-center hover:border-brand-red transition-all">
+          <i data-lucide="code" class="w-8 h-8 text-brand-red mb-2"></i>
+          <span class="text-sm font-semibold text-white">HTML5 / CSS3</span>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center flex flex-col items-center justify-center hover:border-brand-red transition-all">
+          <i data-lucide="terminal" class="w-8 h-8 text-brand-red mb-2"></i>
+          <span class="text-sm font-semibold text-white">JavaScript ES6+</span>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center flex flex-col items-center justify-center hover:border-brand-red transition-all">
+          <i data-lucide="layout" class="w-8 h-8 text-brand-red mb-2"></i>
+          <span class="text-sm font-semibold text-white">Tailwind CSS</span>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center flex flex-col items-center justify-center hover:border-brand-red transition-all">
+          <i data-lucide="cpu" class="w-8 h-8 text-brand-red mb-2"></i>
+          <span class="text-sm font-semibold text-white">React.js</span>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center flex flex-col items-center justify-center hover:border-brand-red transition-all">
+          <i data-lucide="shopping-cart" class="w-8 h-8 text-brand-red mb-2"></i>
+          <span class="text-sm font-semibold text-white">E-Commerce Engines</span>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center flex flex-col items-center justify-center hover:border-brand-red transition-all">
+          <i data-lucide="cloud" class="w-8 h-8 text-brand-red mb-2"></i>
+          <span class="text-sm font-semibold text-white">GitHub / Netlify</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT SECTION ==================== -->
+  <section id="about" class="py-24 relative bg-brand-cardBg/30 border-t border-brand-border/50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">About <span class="text-brand-red">Hango</span></h2>
+      <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+        We craft custom web applications, agency platforms, corporate engineering websites, and financial systems. Our team focuses on high performance, dynamic animations, and brand growth.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT / INQUIRY FORM ==================== -->
+  <section id="contact" class="py-24 relative bg-black/70 border-t border-brand-border">
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+
+      <!-- FORM HEADER -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-5xl font-bold text-white">
+          Get a <span class="text-brand-red">Free Quote</span>
+        </h2>
+        <p class="text-gray-400 mt-3 text-base md:text-lg">
+          Submit your website requirements and let's discuss your custom web build.
+        </p>
+      </div>
+
+      <!-- FORM CARD -->
+      <div class="glass-card p-8 md:p-10 rounded-2xl shadow-2xl border border-brand-border">
+        <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+              <input type="text" required placeholder="John Doe" class="w-full bg-black/50 border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+              <input type="email" required placeholder="john@company.com" class="w-full bg-black/50 border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Website Type</label>
+            <select class="w-full bg-black/50 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-red transition-colors">
+              <option>Custom E-Commerce Store</option>
+              <option>Corporate Business Landing Page</option>
+              <option>FinTech / Calculation Portal</option>
+              <option>Full Redesign & Rebrand</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
+            <textarea rows="4" required placeholder="Tell us about your brand, required features, and goals..." class="w-full bg-black/50 border border-brand-border rounded-xl p-4 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors"></textarea>
+          </div>
+
+          <!-- FORM SUBMIT BUTTON -->
+          <button type="submit" class="w-full py-4 rounded-xl bg-brand-red hover:bg-brand-redHover text-white font-bold text-base transition-all shadow-xl shadow-brand-red/30 flex items-center justify-center">
+            <span>Get a Free Quote</span>
+            <i data-lucide="send" class="w-5 h-5 ml-2"></i>
+          </button>
+        </form>
+
+        <div id="toastSuccess" class="hidden mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm text-center">
+          ✓ Your request has been submitted! We will contact you back within 24 hours.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== VIDEO DEMO MODAL ==================== -->
+  <div id="videoModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-brand-border/60 flex justify-between items-center">
+        <span class="text-sm font-semibold text-white flex items-center">
+          <i data-lucide="play-circle" class="w-4 h-4 text-brand-red mr-2"></i> Website Animated Demo
+        </span>
+        <button onclick="closeVideoModal()" class="text-gray-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="relative aspect-video bg-black">
+        <video id="modalVideo" class="w-full h-full object-contain" controls autoplay loop>
+          <source src="" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-12 border-t border-brand-border/60 text-center text-gray-500 text-sm">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-2">
+        <div class="w-6 h-6 bg-brand-red rounded flex items-center justify-center text-white font-bold text-xs">H</div>
+        <span class="text-white font-bold font-heading">Hango</span>
+        <span>© 2026 All Rights Reserved.</span>
+      </div>
+      <div class="flex space-x-6">
+        <a href="https://github.com" target="_blank" class="hover:text-brand-red transition-colors">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" class="hover:text-brand-red transition-colors">LinkedIn</a>
+        <a href="https://wa.me/" target="_blank" class="hover:text-brand-red transition-colors">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    lucide.createIcons();
+
+    function handleQuoteSubmit(event) {
+      event.preventDefault();
+      const toast = document.getElementById('toastSuccess');
+      toast.classList.remove('hidden');
+      document.getElementById('quoteForm').reset();
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 5000);
+    }
+
+    function openVideoModal(videoSrc) {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.src = videoSrc;
+      modal.classList.remove('hidden');
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.pause();
+      video.src = "";
+      modal.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

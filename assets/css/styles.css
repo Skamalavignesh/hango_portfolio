@@ -1,0 +1,33 @@
+/* Hango portfolio custom styles (Tailwind CDN doesn't include these) */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-card {
+  background: rgba(18, 20, 26, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glow-text {
+  text-shadow: 0 0 24px rgba(255, 32, 32, 0.35);
+}
+
+/* Slim, dark scrollbar to match the theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0b0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232733;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff2020;
+}
