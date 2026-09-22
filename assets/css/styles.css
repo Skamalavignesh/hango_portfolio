@@ -15,6 +15,22 @@
   --glass-bg: rgba(18, 20, 26, 0.6);
 }
 
+/* Reference Websites stacked deck: first card sits on top of the pile */
+#refStack .ref-card {
+  will-change: transform, opacity;
+}
+
+#refStack .ref-card:nth-of-type(1) { z-index: 10; }
+#refStack .ref-card:nth-of-type(2) { z-index: 9; }
+#refStack .ref-card:nth-of-type(3) { z-index: 8; }
+#refStack .ref-card:nth-of-type(4) { z-index: 7; }
+#refStack .ref-card:nth-of-type(5) { z-index: 6; }
+#refStack .ref-card:nth-of-type(6) { z-index: 5; }
+#refStack .ref-card:nth-of-type(7) { z-index: 4; }
+#refStack .ref-card:nth-of-type(8) { z-index: 3; }
+#refStack .ref-card:nth-of-type(9) { z-index: 2; }
+#refStack .ref-card:nth-of-type(10) { z-index: 1; }
+
 body {
   font-family: 'Inter', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
