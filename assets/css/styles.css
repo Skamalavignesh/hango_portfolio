@@ -1,11 +1,27 @@
 /* Hango portfolio custom styles (Tailwind CDN doesn't include these) */
 
+:root {
+  /* Light theme is the default */
+  --bg: #F7F5F1;
+  --card-bg: #FFFFFF;
+  --border: #E4E1DA;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] {
+  --bg: #0A0B0E;
+  --card-bg: #12141A;
+  --border: #232733;
+  --glass-bg: rgba(18, 20, 26, 0.6);
+}
+
 body {
   font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .glass-card {
-  background: rgba(18, 20, 26, 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -14,20 +30,126 @@ body {
   text-shadow: 0 0 24px rgba(255, 32, 32, 0.35);
 }
 
-/* Slim, dark scrollbar to match the theme */
+/* Scrollbar, matched to the active theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0b0e;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #232733;
+  background: var(--border);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ff2020;
+}
+
+/* ==================== THEME REPAINT ====================
+   The page markup was authored with dark-theme utility classes
+   (text-white, bg-black/50, etc). Light is now the default, so those
+   fixed-value classes are repainted for light here (no attribute
+   needed, so there's no flash before the toggle script runs); the
+   [data-theme="dark"] block below restores the original dark values. */
+.text-white,
+.text-gray-100 {
+  color: #16181D !important;
+}
+
+.text-gray-300 {
+  color: #374151 !important;
+}
+
+.text-gray-400 {
+  color: #4B5563 !important;
+}
+
+.bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.bg-black\/50 {
+  background-color: #FFFFFF !important;
+}
+
+.bg-black\/70 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+input,
+select,
+textarea {
+  color: #16181D !important;
+  border-color: #E4E1DA !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
+/* Dark mode: restore the page's original dark-authored values */
+[data-theme="dark"] .text-white,
+[data-theme="dark"] .text-gray-100 {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .text-gray-300 {
+  color: #D1D5DB !important;
+}
+
+[data-theme="dark"] .text-gray-400 {
+  color: #9CA3AF !important;
+}
+
+[data-theme="dark"] .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .bg-black\/70 {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  color: #fff !important;
+  border-color: #232733 !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #4B5563 !important;
+}
+
+/* Theme toggle icon swap: shows the icon for the mode you'd switch TO */
+.theme-icon-sun {
+  display: none;
+}
+
+.theme-icon-moon {
+  display: inline-block;
+}
+
+[data-theme="dark"] .theme-icon-sun {
+  display: inline-block;
+}
+
+[data-theme="dark"] .theme-icon-moon {
+  display: none;
 }

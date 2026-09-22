@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hango | Engineering Digital Growth</title>
 
+  <!-- Apply saved theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('hango-theme');
+        if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -27,9 +37,9 @@
             brand: {
               red: '#FF2020',
               redHover: '#E01B1B',
-              darkBg: '#0A0B0E',
-              cardBg: '#12141A',
-              border: '#232733'
+              darkBg: 'var(--bg)',
+              cardBg: 'var(--card-bg)',
+              border: 'var(--border)'
             }
           },
           fontFamily: {
@@ -41,7 +51,7 @@
     }
   </script>
 </head>
-<body class="overflow-x-hidden bg-[#0A0B0E] text-gray-100">
+<body class="overflow-x-hidden bg-brand-darkBg text-gray-100">
 
   <!-- ==================== NAVIGATION ==================== -->
   <nav class="fixed top-0 left-0 right-0 z-50 glass-card bg-opacity-80 border-b border-brand-border/50">
@@ -62,11 +72,19 @@
         <a href="#contact" class="hover:text-brand-red transition-colors">Get Quote</a>
       </div>
 
-      <!-- Primary CTA Button -->
-      <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-brand-red hover:bg-brand-redHover text-white font-medium text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-red/25">
-        <span>Build Your Website</span>
-        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-      </a>
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light and dark theme" class="p-2.5 rounded-full border border-brand-border hover:border-brand-red transition-colors">
+          <i data-lucide="moon" class="w-5 h-5 text-gray-300 theme-icon-moon"></i>
+          <i data-lucide="sun" class="w-5 h-5 text-gray-300 theme-icon-sun"></i>
+        </button>
+
+        <!-- Primary CTA Button -->
+        <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-brand-red hover:bg-brand-redHover text-white font-medium text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-red/25">
+          <span>Build Your Website</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -409,6 +427,17 @@
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
     lucide.createIcons();
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      try { localStorage.setItem('hango-theme', next); } catch (e) {}
+    }
 
     function handleQuoteSubmit(event) {
       event.preventDefault();
