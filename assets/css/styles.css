@@ -18,6 +18,7 @@
 /* Reference Websites stacked deck: first card sits on top of the pile */
 #refStack .ref-card {
   will-change: transform, opacity;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
 }
 
 #refStack .ref-card:nth-of-type(1) { z-index: 7; }
