@@ -286,21 +286,32 @@
       </p>
     </div>
 
-    <div id="refRunway" class="relative" style="height: 600vh;">
+    <div id="refRunway" class="relative" style="height: 420vh;">
       <div class="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
         <div id="refStack" class="relative w-[88vw] max-w-3xl aspect-video">
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 1</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 2</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 3</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 4</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 5</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 6</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 7</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 8</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 9</div>
-          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl flex items-center justify-center text-gray-500 text-xl font-heading">Reference 10</div>
+          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl overflow-hidden">
+            <video class="w-full h-full object-cover" data-src="assets/videos/reference-1.mp4" muted loop playsinline preload="none"></video>
+          </div>
+          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl overflow-hidden">
+            <video class="w-full h-full object-cover" data-src="assets/videos/reference-2.mp4" muted loop playsinline preload="none"></video>
+          </div>
+          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl overflow-hidden">
+            <video class="w-full h-full object-cover" data-src="assets/videos/reference-3.mp4" muted loop playsinline preload="none"></video>
+          </div>
+          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl overflow-hidden">
+            <video class="w-full h-full object-cover" data-src="assets/videos/reference-4.mp4" muted loop playsinline preload="none"></video>
+          </div>
+          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl overflow-hidden">
+            <video class="w-full h-full object-cover" data-src="assets/videos/reference-5.mp4" muted loop playsinline preload="none"></video>
+          </div>
+          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl overflow-hidden">
+            <video class="w-full h-full object-cover" data-src="assets/videos/reference-6.mp4" muted loop playsinline preload="none"></video>
+          </div>
+          <div class="ref-card glass-card absolute inset-0 rounded-2xl border border-brand-border shadow-2xl overflow-hidden">
+            <video class="w-full h-full object-cover" data-src="assets/videos/reference-7.mp4" muted loop playsinline preload="none"></video>
+          </div>
         </div>
-        <div id="refCounter" class="mt-6 text-sm font-medium text-gray-400 tracking-wide">01 / 10</div>
+        <div id="refCounter" class="mt-6 text-sm font-medium text-gray-400 tracking-wide">01 / 07</div>
       </div>
     </div>
   </section>
@@ -493,8 +504,36 @@
       const total = cards.length;
       if (!runway || total === 0) return;
 
+      const videos = cards.map((card) => card.querySelector('video'));
+      let activeIndex = -1;
+
+      // Only the active (topmost) card's video is loaded/playing at a time,
+      // so 7 full videos don't all try to buffer at once.
+      function activateVideo(index) {
+        if (index === activeIndex) return;
+        if (videos[activeIndex]) {
+          videos[activeIndex].pause();
+        }
+        activeIndex = index;
+        const current = videos[activeIndex];
+        if (current) {
+          if (!current.src && current.dataset.src) {
+            current.src = current.dataset.src;
+          }
+          current.play().catch(() => {});
+        }
+        // pre-buffer the next card so its video is ready before its turn
+        const next = videos[activeIndex + 1];
+        if (next && !next.src && next.dataset.src) {
+          next.src = next.dataset.src;
+        }
+      }
+
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion) return; // leave the stack static, no scroll-driven motion
+      if (reduceMotion) {
+        activateVideo(0); // still show the first card's video, just skip the scroll motion
+        return;
+      }
 
       let ticking = false;
 
@@ -516,6 +555,8 @@
           card.style.transform = `translate(${exitX}%, ${staticOffsetY}px) rotate(${exitRotate}deg) scale(${staticScale})`;
           card.style.opacity = opacity;
         });
+
+        activateVideo(Math.min(total - 1, Math.floor(raw)));
 
         if (counter) {
           const current = Math.min(total, Math.floor(raw) + 1);
