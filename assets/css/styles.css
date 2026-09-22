@@ -153,20 +153,3 @@ textarea::placeholder {
 [data-theme="dark"] .theme-icon-moon {
   display: none;
 }
-
-/* Logo swap: red mark on light backgrounds, cream mark on dark backgrounds */
-.logo-icon-dark {
-  display: none;
-}
-
-.logo-icon-light {
-  display: inline-block;
-}
-
-[data-theme="dark"] .logo-icon-light {
-  display: none;
-}
-
-[data-theme="dark"] .logo-icon-dark {
-  display: inline-block;
-}
