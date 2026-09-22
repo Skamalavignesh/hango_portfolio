@@ -15,19 +15,29 @@
   --glass-bg: rgba(18, 20, 26, 0.6);
 }
 
-/* Reference Websites stacked deck: first card sits on top of the pile */
-#refStack .ref-card {
-  will-change: transform, opacity;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+/* Reference Websites: native nested-scroll paging (#refScroller) handles
+   the pin + one-scroll-per-video mechanics reliably. Each card is
+   position:sticky so it holds still at the vertical center of the
+   viewport while its page scrolls past underneath it; the only motion
+   the visitor sees is the horizontal exit JS applies on top of that. */
+#refScroller.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-#refStack .ref-card:nth-of-type(1) { z-index: 7; }
-#refStack .ref-card:nth-of-type(2) { z-index: 6; }
-#refStack .ref-card:nth-of-type(3) { z-index: 5; }
-#refStack .ref-card:nth-of-type(4) { z-index: 4; }
-#refStack .ref-card:nth-of-type(5) { z-index: 3; }
-#refStack .ref-card:nth-of-type(6) { z-index: 2; }
-#refStack .ref-card:nth-of-type(7) { z-index: 1; }
+#refScroller.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.ref-page {
+  scroll-snap-stop: always;
+}
+
+.ref-page .ref-card {
+  position: sticky;
+  top: 50%;
+  will-change: transform, opacity;
+}
 
 body {
   font-family: 'Inter', sans-serif;
