@@ -29,6 +29,21 @@
   display: none;
 }
 
+/* 100vh doesn't account for mobile browsers' address bar showing/hiding,
+   which can cut off content or leave a gap. 100dvh does; browsers that
+   don't understand it just ignore the declaration and keep the 100vh
+   set by Tailwind's h-screen class above. */
+#refPin,
+#refScroller,
+.ref-page {
+  height: 100dvh !important;
+}
+
+#refScroller {
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
 .ref-page {
   scroll-snap-stop: always;
 }
